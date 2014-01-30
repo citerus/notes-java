@@ -4,16 +4,16 @@ public class Heroku implements Connector {
 
    @Override
    public boolean available() {
-      return false;
+      return System.getenv("MONGOHQ_URL") != null;
    }
 
    @Override
    public String url() {
-      return "TODO";
+      return System.getenv("MONGOHQ_URL");
    }
 
    @Override
    public String db() {
-      return "TODO";
+      return url().substring(url().lastIndexOf("/") + 1);
    }
 }

@@ -4,16 +4,16 @@ public class Jelastic implements Connector {
 
    @Override
    public boolean available() {
-      return false;
+      return "jelastic".equals(System.getProperty("environment"));
    }
 
    @Override
    public String url() {
-      return "TODO";
+      return System.getProperty("mongo_url");
    }
 
    @Override
    public String db() {
-      return "TODO";
+      return "notes";
    }
 }

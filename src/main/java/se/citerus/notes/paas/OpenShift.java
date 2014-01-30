@@ -4,16 +4,16 @@ public class OpenShift implements Connector {
 
    @Override
    public boolean available() {
-      return false;
+      return System.getenv("OPENSHIFT_APP_UUID") != null;
    }
 
    @Override
    public String url() {
-      return "TODO";
+      return System.getenv("OPENSHIFT_MONGODB_DB_URL") + db();
    }
 
    @Override
    public String db() {
-      return "TODO";
+      return "notes";
    }
 }
